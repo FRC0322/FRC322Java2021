@@ -10,8 +10,6 @@ package com.fireteam322.frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import com.fireteam322.frc.robot.subsystems.Dashboard.Tab;
-import io.github.oblarg.oblog.Logger;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -48,9 +46,6 @@ public class Robot extends TimedRobot {
 		// and running subsystem periodic() methods.  This must be called from the robot's periodic
 		// block in order for anything in the Command-based framework to work.
 		CommandScheduler.getInstance().run();
-
-		// Runs the Oblog Logger
-		Logger.updateEntries();
 	}
 
 	/**
@@ -74,8 +69,6 @@ public class Robot extends TimedRobot {
 		// schedule the autonomous command
 		if (m_autonomousCommand != null)
 			m_autonomousCommand.schedule();
-
-		m_robotContainer.getDashboard().setTab(Tab.kAutonomous);
 	}
 
 	/**
@@ -108,8 +101,6 @@ public class Robot extends TimedRobot {
 	public void testInit() {
 		// Cancels all running commands at the start of test mode.
 		CommandScheduler.getInstance().cancelAll();
-
-		m_robotContainer.getDashboard().setTab(Tab.kDebugger);
 	}
 
 	/**
